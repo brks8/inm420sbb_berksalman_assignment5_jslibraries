@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Visit Spain - INM420SBB - Berk Salman - JS Libraries Assignments</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <!-- Glide.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css" />
+    <!-- Lightbox2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+            <div class="site-logo">
+                <a href="/">
+                    <img src="assets/images/logo.png" alt="Visit Spain logo" />
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#things">Things to Do</a></li>
+                <li><a href="#map">Where to Go</a></li>
+                <li><a href="#weatherChart">Plan Your Trip</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Glide.js Carousel: Cities in Spain Section -->
+        <section class="hero">
+            <p class="section-lead">DISCOVER</p>
+            <h2>Top Cities in Spain</h2>
+            <p class="subtitle">From historic capitals to coastal beauty</p>
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide">
+                            <div class="slide-wrapper">
+                                <img src="assets/images/madrid.jpg" alt="Madrid" />
+                                <div class="slide-caption">Madrid</div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="slide-wrapper">
+                                <img src="assets/images/barcelona.jpg" alt="Barcelona" />
+                                <div class="slide-caption">Barcelona</div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="slide-wrapper">
+                                <img src="assets/images/granada.jpg" alt="Granada" />
+                                <div class="slide-caption">Granada</div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="slide-wrapper">
+                                <img src="assets/images/valencia.jpg" alt="Valencia" />
+                                <div class="slide-caption">Valencia</div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="slide-wrapper">
+                                <img src="assets/images/seville.jpg" alt="Seville" />
+                                <div class="slide-caption">Seville</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox2: Things to do Section -->
+        <section class="gallery" id="things">
+            <p class="section-lead">EXPERIENCE</p>
+            <h2>Things to Do</h2>
+            <p class="subtitle">Explore culture, cuisine, and iconic landmarks</p>
+            <div class="gallery-grid">
+                <a href="assets/images/market.jpg" data-lightbox="activities" data-title="Street Market in Madrid"
+                    class="card">
+                    <img src="assets/images/market_thumb.jpg" alt="Street Market in Madrid" />
+                    <p class="thumb-caption">Street Market in Madrid</p>
+                </a>
+                <a href="assets/images/flamenco.jpg" data-lightbox="activities" data-title="Flamenco Show in Seville"
+                    class="card">
+                    <img src="assets/images/flamenco_thumb.jpg" alt="Flamenco Show in Seville" />
+                    <p class="thumb-caption">Flamenco Show in Seville</p>
+                </a>
+                <a href="assets/images/tapas.jpg" data-lightbox="activities" data-title="Tapas Tasting in Barcelona"
+                    class="card">
+                    <img src="assets/images/tapas_thumb.jpg" alt="Tapas Tasting in Barcelona" />
+                    <p class="thumb-caption">Tapas Tasting in Barcelona</p>
+                </a>
+                <a href="assets/images/alhambra.jpg" data-lightbox="activities" data-title="Alhambra Tour in Granada"
+                    class="card">
+                    <img src="assets/images/alhambra_thumb.jpg" alt="Alhambra Tour in Granada" />
+                    <p class="thumb-caption">Alhambra Tour in Granada</p>
+                </a>
+                <a href="assets/images/parkguell.jpg" data-lightbox="activities" data-title="Sunset at Park Güell"
+                    class="card">
+                    <img src="assets/images/parkguell_thumb.jpg" alt="Sunset at Park Güell" />
+                    <p class="thumb-caption">Sunset at Park Güell</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Chart.js: Map Section -->
+        <section class="map-section" id="map">
+            <p class="section-lead">DESTINATIONS</p>
+            <h2>Where To Go</h2>
+            <p class="subtitle">A glimpse at the must-visit cities in Spain</p>
+            <div id="map-container"></div>
+        </section>
+
+        <!-- Chart.js: Weather Section -->
+        <section class="chart-section" id="weather">
+            <p class="section-lead">PLAN YOUR TRIP</p>
+            <h2>City Temperatures at a Glance</h2>
+            <p class="subtitle">Compare average temperatures across regions</p>
+            <canvas id="weatherChart"></canvas>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Visit Spain. All rights reserved.</p>
+    </footer>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Main JS -->
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>
